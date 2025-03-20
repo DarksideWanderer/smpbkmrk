@@ -1,0 +1,25 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "C++ Launch",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/main",
+			//"program": "${command:cmake.launchTargetPath}",
+			//"program": "${fileDirname}/${fileBasenameNoExtension}",
+			"args": [
+				"-arg1",
+				"-arg2"
+			],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"internalConsoleOptions": "neverOpen",
+			"MIMode": "lldb",
+			//"preLaunchTask": "Compile"
+			"preLaunchTask": "CMake Build"
+		},
+	]
+}
