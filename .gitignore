@@ -2,6 +2,7 @@
 *
 !*.*
 !*/
+!CODEOWNERS
 *.dSYM/
 .DS_Store
 
