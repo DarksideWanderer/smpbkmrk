@@ -6,15 +6,4 @@
 *.dSYM/
 .DS_Store
 
-.vscode
 build/
-
-
-struct {
-
-	lc=3
-}Id[1000]
-
-
-
-return Id[1].lc+Id[1].rc  
