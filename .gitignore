@@ -1,10 +1,10 @@
 # 这部分是避免可执行文件上传 和 苹果深金文件
 *
-!*.*
+!.*
 !*/
 !CODEOWNERS
 *.dSYM/
 .DS_Store
 
-# .vscode
 build/
+.vscode
