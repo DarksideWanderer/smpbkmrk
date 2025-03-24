@@ -15,7 +15,11 @@ set(DOOL_PATH "/Users/piggy/Documents/GitHub/WqlTool")
 project(MyProject)
 
 # 这里是设置宏(载入头文件)
-set(Necessery_H /opt/homebrew/Cellar/sdl2/2.32.2/include /opt/homebrew/Cellar/sdl2_ttf/2.24.0/include)
+set(Necessery_H 
+	/opt/homebrew/Cellar/sdl2/2.32.2/include 
+	/opt/homebrew/Cellar/sdl2_ttf/2.24.0/include
+	/opt/homebrew/Cellar/sdl2_gfx/1.0.4/include
+)
 
 # 这里是将有用的头文件载入
 include_directories(include)
@@ -39,6 +43,7 @@ foreach (_target ${_targets})
 endforeach()
 
 # 这里是链接库
-add_executable(main src/main.cpp ${SOURCE} ${DTOOL})
+add_executable(main src/main.cpp ${SOURCES} ${DTOOL})
 # add_executable(test src/test.cpp ${SOURCES})
 target_link_libraries(main SDL2::SDL2 SDL2_ttf::SDL2_ttf)
+target_link_libraries(main /opt/homebrew/Cellar/sdl2_gfx/1.0.4/lib/libSDL2_gfx-1.0.0.dylib)
