@@ -6,5 +6,7 @@
 *.dSYM/
 .DS_Store
 
+CMakeLists.txt
+
 build/
 .vscode
