@@ -3,22 +3,22 @@
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_ttf.h>
 
-class Smpbkmrk;
-class GuiComponent{
+class Application;
+class Component{
 public:
-	friend class Smpbkmrk;
+	friend class Application;
 protected:
-	Smpbkmrk* app;
-	virtual ~GuiComponent()=default;
+	Application* app;
 	virtual int handleEvent(SDL_Event&e)=0;  // 处理事件
 	virtual bool render()=0;  // 渲染组件
-	GuiComponent(Smpbkmrk* app):app(app){}
+	Component(Application* app):app(app){}
+	~Component()=default;
 };
 
 //按钮
-class Button : public GuiComponent {
+class Button : public Component {
 public:
-	friend class Smpbkmrk;
+	friend class Application;
 private:
 	SDL_Rect rect;//开发范式 以(1080,1920) 为基准开发
 	SDL_Color colorr={0,0,255,255};//默认蓝框白字
@@ -29,11 +29,12 @@ private:
 	//这里还需要补全样式
 	
 protected:
-	Button(Smpbkmrk*app,SDL_Rect rect,const std::string& text, std::function<void()> onClick);
+	Button(Application*app,SDL_Rect rect,const std::string& text, std::function<void()> onClick);
+	~Button()=default;
+	int handleEvent(SDL_Event&e) override;
 	bool render() override;
 	void setColorr(SDL_Color _color);
 	void setColort(SDL_Color _color);
-	int handleEvent(SDL_Event&e) override;
 };
 
 // class TextBox : public GuiComponent {
@@ -76,22 +77,5 @@ protected:
 
 // 	const std::string& getText() const {
 // 		return text;
-// 	}
-// };
-
-// 处理所有注册
-// class EventDispatcher {
-// private:
-// 	std::list<GuiComponent*> components;
-
-// public:
-// 	void addComponent(GuiComponent* component) {
-// 		components.push_back(component);
-// 	}
-
-// 	void dispatchEvent(const SDL_Event& e) {
-// 		for (auto& component : components) {
-// 			component->handleEvent(e);
-// 		}
 // 	}
 // };

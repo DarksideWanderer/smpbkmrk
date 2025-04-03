@@ -5,11 +5,14 @@
 #include"dtool/dio.h"
 
 class Button;
-class GuiComponent;
-class Smpbkmrk{//应用主体
+class Component;
+class Screen;
+
+class Application{//应用主体
 public:
 	friend class Button;
-	friend class GuiComponent;
+	friend class Component;
+	friend class Screen;
 	
 protected:
 	
@@ -22,20 +25,22 @@ protected:
 	
 	int width,height;//基础大小,靠纹理变更放大某些特殊东西
 	double alpha;//放大比率
-	Smpbkmrk(int _height,int _wight);
-	~Smpbkmrk();
+	
+	//参数函数
+	Application(int _height,int _wight);
+	~Application();
+	float getDPI();
+	
+	//过程函数
 	bool init();
 	void cleanUp();
-	float getDPI();
-	void onEvent();
-	void render();
 	
-	std::list<GuiComponent*>Li;
+	int index;//目前处于的screen编号
+	std::vector<Screen*>scr;
 	
 public:
 	int execute(int argc, char *argv[]);
-	Smpbkmrk(const Smpbkmrk&)=delete; // 禁止拷贝构造
-	Smpbkmrk& operator=(const Smpbkmrk&)=delete; // 禁止赋值操作
-	
-	static Smpbkmrk*getInstance();
+	Application(const Application&)=delete; // 禁止拷贝构造
+	Application& operator=(const Application&)=delete; // 禁止赋值操作
+	static Application*getInstance();
 };
