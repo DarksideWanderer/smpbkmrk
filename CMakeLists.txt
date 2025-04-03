@@ -9,7 +9,6 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -std=c++20")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g -std=c17")
 set(CMAKE_CXX_COMPILER "/opt/homebrew/Cellar/gcc/14.2.0_1/bin/aarch64-apple-darwin24-g++-14" CACHE STRING "C++ Compiler" FORCE)
 set(CMAKE_C_COMPILER "/opt/homebrew/Cellar/gcc/14.2.0_1/bin/aarch64-apple-darwin24-gcc-14" CACHE STRING "C Compiler" FORCE)
-set(DOOL_PATH "/Users/piggy/Documents/GitHub/WqlTool")
 
 # 项目的名字
 project(MyProject)
@@ -28,7 +27,6 @@ include_directories(${DOOL_PATH})
 
 # 递归命名文件(用于链接编译)
 file(GLOB_RECURSE SOURCES "include/*.cpp" REQUIRED) # 将所有这种文件命名为 SOURCES
-file(GLOB_RECURSE DTOOL "${DOOL_PATH}/*.cpp" REQUIRED)
 
 # 这里是寻找包(用于跨平台)
 find_package(sdl2 REQUIRED)

@@ -1,10 +1,10 @@
-#include"smpbkmrk.h"
+#include"application.h"
 #include"dgui/dgui.h"
 #include"dtool/dlogger.h"
 #include <SDL2/SDL2_rotozoom.h> 
 
-Button::Button(Smpbkmrk*app,SDL_Rect rect,const std::string&text,std::function<void()>onClick)
-			: GuiComponent(app),rect(rect),label(text), onClick(onClick) {}
+Button::Button(Application*app,SDL_Rect rect,const std::string&text,std::function<void()>onClick)
+			: Component(app),rect(rect),label(text), onClick(onClick) {}
 
 // SDL_Surface Scale(SDL_Surface ,double tmp){
 // 	SDL_Surface target=SDL_CreateRGBSurface(0, (int)target, tmp, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000);

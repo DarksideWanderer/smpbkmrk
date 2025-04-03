@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 
-#include"smpbkmrk.h"
+#include"application.h"
 #include"dtool/dlogger.h"
 
 
 
-Smpbkmrk &app=*Smpbkmrk::getInstance();
+Application &app=*Application::getInstance();
 
 dag::tool::Logger &logger=*dag::tool::Logger::getInstance();
 

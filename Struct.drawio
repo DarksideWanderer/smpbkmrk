@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="ku9QlQhDixlMcRl9jCz2" name="第 1 页">
+        <mxGraphModel dx="515" dy="417" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="Application" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;div style=&quot;color: rgb(204, 204, 204); line-height: 18px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); white-space: normal;&quot;&gt;Screen&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;div style=&quot;color: rgb(204, 204, 204); line-height: 18px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); white-space: normal;&quot;&gt;Component&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="组合" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.twoWayArrow;dy=0.65;dx=22;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="140" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="组合" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.twoWayArrow;dy=0.65;dx=22;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="140" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="继承" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.twoWayArrow;dy=0.65;dx=22;rotation=90;" parent="1" vertex="1">
+                    <mxGeometry x="661.1800000000001" y="220" width="77.63" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Button,Textbox" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="290" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="继承" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.twoWayArrow;dy=0.65;dx=22;rotation=90;" parent="1" vertex="1">
+                    <mxGeometry x="461.18000000000006" y="220" width="77.63" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="选择文件,搜索的页面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="290" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;div&gt;命名约定: 类 大驼峰 , 变量 小写 , 函数 小驼峰&lt;/div&gt;访问私用成员:友元类&lt;div&gt;不要递归调用函数&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="400" width="320" height="200" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
