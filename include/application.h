@@ -2,7 +2,6 @@
 #include<bits/stdc++.h>
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_ttf.h>
-#include"dtool/dio.h"
 
 class Button;
 class Component;
