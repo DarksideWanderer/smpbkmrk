@@ -76,8 +76,9 @@ void Application::cleanUp(){
 int Application::execute(int argc, char *argv[]) {
 	if (!init())return 1;
 	
+	scr.push_back(new TestScreen);
 	while(running){
-		scr[index]->execute(argc,argv);
+  		scr[index]->execute(argc,argv);
 	}
 	
 	// while(running){
