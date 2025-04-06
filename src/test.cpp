@@ -30,7 +30,9 @@ int main() {
     }
 
     SDL_StartTextInput(); // 启用 IME 输入
-
+	
+	//int x;scanf("%d",&x);
+	
     std::string text; // 存储输入文本
     bool running = true;
     SDL_Event e;

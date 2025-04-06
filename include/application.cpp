@@ -27,7 +27,8 @@ Application::~Application(){
 
 
 bool Application::init(){
-	if(SDL_Init(SDL_INIT_EVERYTHING) < 0)return false;
+	if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
+		return false;
 	if(TTF_Init()<0)return false;
 	window = SDL_CreateWindow(
 	"Hello SDL world!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
@@ -76,7 +77,7 @@ void Application::cleanUp(){
 int Application::execute(int argc, char *argv[]) {
 	if (!init())return 1;
 	
-	scr.push_back(new TestScreen);
+	scr.push_back(new TestScreen(getInstance()));
 	while(running){
   		scr[index]->execute(argc,argv);
 	}
@@ -90,6 +91,8 @@ int Application::execute(int argc, char *argv[]) {
 	// 	float msecondsElapsed = (end - start) / static_cast<float>(SDL_GetPerformanceFrequency())/1000;
 	// 	if(msecondsElapsed<flash)SDL_Delay((int)(flash-msecondsElapsed));
 	// }
+	
+	for(auto t:scr)delete t;
 	
 	cleanUp();
 	return 0;

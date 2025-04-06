@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_ttf.h>
-#include"dtool/dio.h"
+#include"dtool/dbasic.h"
 
 class Button;
 class Component;
@@ -27,8 +27,7 @@ protected:
 	virtual int onEvent()=0;//事件处理
 	virtual int cleanUp()=0;
 	
-	int index;//目前处于的screen编号
-	std::vector<Component*>scr;
+	std::vector<Component*>com;
 	
 public:
 	virtual int execute(int argc, char *argv[])=0;
@@ -50,6 +49,6 @@ protected:
 	int onEvent() override;
 	int cleanUp() override;
 public:
-	int execute(int argc,char *argv[])=0;
+	int execute(int argc,char *argv[])override;
 	
 };

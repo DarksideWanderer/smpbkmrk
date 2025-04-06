@@ -2,17 +2,17 @@
 #include<bits/stdc++.h>
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_ttf.h>
-#include"dtool/dio.h"
 
 class Button;
 class Component;
 class Screen;
-
+class TestScreen;
 class Application{//应用主体
 public:
 	friend class Button;
 	friend class Component;
 	friend class Screen;
+	friend class TestScreen;
 	
 protected:
 	

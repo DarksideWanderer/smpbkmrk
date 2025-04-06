@@ -7,6 +7,8 @@ class Application;
 class Component{
 public:
 	friend class Application;
+	friend class Screen;
+	friend class TestScreen;
 protected:
 	Application* app;
 	virtual int handleEvent(SDL_Event&e)=0;  // 处理事件
@@ -19,6 +21,8 @@ protected:
 class Button : public Component {
 public:
 	friend class Application;
+	friend class Screen;
+	friend class TestScreen;
 private:
 	SDL_Rect rect;//开发范式 以(1080,1920) 为基准开发
 	SDL_Color colorr={0,0,255,255};//默认蓝框白字
