@@ -45,6 +45,7 @@ bool Application::init(){
 	}
 	if (SDL_SetHint(SDL_HINT_RENDER_VSYNC, "1") == -1) {
 		logDebug("SDL_SetHint: ",SDL_GetError());
+		return false;
 	}
 	//字体默认大小为36,渲染字体时优化纹理
 	font = TTF_OpenFont("../resource/Arial Unicode.ttf",36);
@@ -60,6 +61,7 @@ void Application::cleanUp(){
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	TTF_CloseFont(font);
+	SDL_StopTextInput();
 }
 
 // void Application::onEvent(){//用户交互
