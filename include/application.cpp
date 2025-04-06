@@ -32,7 +32,7 @@ bool Application::init(){
 	if(TTF_Init()<0)return false;
 	window = SDL_CreateWindow(
 	"Hello SDL world!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
-		width,height, SDL_WINDOW_ALLOW_HIGHDPI
+		width,height, SDL_WINDOW_SHOWN
 	); // 创建SDL窗口
 	if(window==nullptr) {
 		logDebug("SDL_CreateWindow error: " , SDL_GetError());
