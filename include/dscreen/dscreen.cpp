@@ -9,7 +9,10 @@
 
 
 bool TestScreen::init(){
-	com.push_back(new Button(app,{100,100,100,100},"Sb",[](){std::cerr<<"Sb";}));
+	com.push_back(new Button(app,{100,100,100,100},"Sb",[](){
+		static int t;
+		std::cout<<++t<<std::endl;
+	}));
 	return true;
 }
 
@@ -23,10 +26,23 @@ int TestScreen::cleanUp(){
 void TestScreen::render(){
 	SDL_SetRenderDrawColor(app->renderer,242,245,250,100);
 	SDL_RenderClear(app->renderer);
+	for(auto t:com)
+		t->render();
+		
+	SDL_Rect rectt={0,0,500*app->alpha,500*app->alpha};
+	SDL_RenderDrawRect(app->renderer, &rectt);
 	SDL_RenderPresent(app->renderer);
 }
 
 int TestScreen::onEvent(){
+	SDL_Event e;
+	if(!SDL_PollEvent(&e))return 0;
+	if(e.type==SDL_QUIT){
+		running=false;
+		app->running = false;
+	}
+	for(auto t:com)
+		t->handleEvent(e);
 	return 0;
 }
 

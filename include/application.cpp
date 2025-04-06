@@ -32,7 +32,7 @@ bool Application::init(){
 	if(TTF_Init()<0)return false;
 	window = SDL_CreateWindow(
 	"Hello SDL world!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
-		width,height, SDL_WINDOW_ALLOW_HIGHDPI
+		width,height, SDL_WINDOW_SHOWN
 	); // 创建SDL窗口
 	if(window==nullptr) {
 		logDebug("SDL_CreateWindow error: " , SDL_GetError());
@@ -45,6 +45,7 @@ bool Application::init(){
 	}
 	if (SDL_SetHint(SDL_HINT_RENDER_VSYNC, "1") == -1) {
 		logDebug("SDL_SetHint: ",SDL_GetError());
+		return false;
 	}
 	//字体默认大小为36,渲染字体时优化纹理
 	font = TTF_OpenFont("../resource/Arial Unicode.ttf",36);
@@ -60,6 +61,7 @@ void Application::cleanUp(){
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	TTF_CloseFont(font);
+	SDL_StopTextInput();
 }
 
 // void Application::onEvent(){//用户交互

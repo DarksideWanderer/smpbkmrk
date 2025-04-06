@@ -55,9 +55,10 @@ void Button::setColorr(SDL_Color _color){colorr=_color;}
 void Button::setColort(SDL_Color _color){colort=_color;}
 int Button::handleEvent(SDL_Event&e) {
 	if (e.type == SDL_MOUSEBUTTONDOWN) {
-		if (e.button.x >= rect.x*app->alpha && e.button.x <= (rect.x + rect.w)*app->alpha &&
-			e.button.y >= rect.y*app->alpha && e.button.y <= (rect.y + rect.h)*app->alpha) {
-			printf("%d\n",-1);
+		std::cout<<"A:"<<e.button.x<<' '<<e.button.y<<std::endl;
+		std::cout<<"B:"<<rect.x*app->alpha<<' '<<rect.y*app->alpha<<std::endl;
+		if (e.button.x >= rect.x*app->alpha &&// e.button.x <= (rect.x + rect.w) &&
+			e.button.y >= rect.y*app->alpha) {//&& e.button.y <= (rect.y + rect.h)) {
 			onClick();
 		}
 	}
