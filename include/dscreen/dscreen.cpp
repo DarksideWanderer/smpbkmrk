@@ -27,6 +27,12 @@ void TestScreen::render(){
 }
 
 int TestScreen::onEvent(){
+	SDL_Event e;
+	if(!SDL_PollEvent(&e))return 0;
+	if(e.type==SDL_QUIT){
+		running=false;
+		app->running = false;
+	}
 	return 0;
 }
 

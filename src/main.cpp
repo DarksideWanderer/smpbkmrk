@@ -11,6 +11,7 @@ Application &app=*Application::getInstance();
 dag::tool::Logger &logger=*dag::tool::Logger::getInstance();
 
 int main(){
+	
 	logger.open(dag::tool::getPath()/"mainlog.txt");
 	
 	int argc=0;
