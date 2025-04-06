@@ -1,0 +1,3 @@
+[2025-04-06 13:57:39][DUBUG][application.cpp:52] TTF_OpenFont error: Couldn't open ../resource/Arial Unicode.ttf: Operation not permitted
+[2025-04-06 14:07:41][DUBUG][application.cpp:52] TTF_OpenFont error: Couldn't open ../resource/Arial Unicode.ttf: Operation not permitted
+[2025-04-06 14:08:42][DUBUG][application.cpp:52] TTF_OpenFont error: Couldn't open ../resource/Arial Unicode.ttf: Operation not permitted

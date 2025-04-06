@@ -2,6 +2,7 @@
 
 #include"application.h"
 #include"dtool/dlogger.h"
+#include"dtool/dpath.h"
 
 
 
@@ -10,7 +11,7 @@ Application &app=*Application::getInstance();
 dag::tool::Logger &logger=*dag::tool::Logger::getInstance();
 
 int main(){
-	logger.open("mainlog.txt");
+	logger.open(dag::tool::getPath()/"mainlog.txt");
 	
 	int argc=0;
 	char *argv[]={};

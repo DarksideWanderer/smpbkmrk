@@ -31,11 +31,11 @@ namespace tool{
 		static const char *s_level[LEVEL_COUNT];
 		static Logger *m_instance;
 	};
-	#define logDebug(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::DEBUG,dag::tool::getFileName(),dag::tool::getLine(),##__VA_ARGS__))
-	#define logInfo(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::INFO,dag::tool::getFileName(),dag::tool::getLine(),##__VA_ARGS__))
-	#define logWarn(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::WARN,dag::tool::getFileName(),dag::tool::getLine(),##__VA_ARGS__))
-	#define logError(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::ERROR,dag::tool::getFileName(),dag::tool::getLine(),##__VA_ARGS__))
-	#define logFatal(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::FATAL,dag::tool::getFileName(),dag::tool::getLine(),##__VA_ARGS__))
+	#define logDebug(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::DEBUG,dag::tool::getFileName().string(),dag::tool::getLine(),##__VA_ARGS__))
+	#define logInfo(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::INFO,dag::tool::getFileName().string(),dag::tool::getLine(),##__VA_ARGS__))
+	#define logWarn(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::WARN,dag::tool::getFileName().string(),dag::tool::getLine(),##__VA_ARGS__))
+	#define logError(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::ERROR,dag::tool::getFileName().string(),dag::tool::getLine(),##__VA_ARGS__))
+	#define logFatal(...) (dag::tool::Logger::getInstance()->lOutPut(dag::tool::Logger::FATAL,dag::tool::getFileName().string(),dag::tool::getLine(),##__VA_ARGS__))
 }
 }
 

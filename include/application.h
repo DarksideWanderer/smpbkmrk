@@ -6,12 +6,13 @@
 class Button;
 class Component;
 class Screen;
-
+class TestScreen;
 class Application{//应用主体
 public:
 	friend class Button;
 	friend class Component;
 	friend class Screen;
+	friend class TestScreen;
 	
 protected:
 	

@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+#include<SDL2/SDL.h>
 #include"dtool/dlogger.h"
 #include"dscreen/dscreen.h"
 #include"dgui/dgui.h"
@@ -7,15 +9,21 @@
 
 
 bool TestScreen::init(){
+	com.push_back(new Button(app,{100,100,100,100},"Sb",[](){std::cerr<<"Sb";}));
 	return true;
 }
 
 int TestScreen::cleanUp(){
+	for(auto t:com)
+		delete(t);
+	clearContainer(com);
 	return 0;
 }
 
 void TestScreen::render(){
-	
+	SDL_SetRenderDrawColor(app->renderer,242,245,250,100);
+	SDL_RenderClear(app->renderer);
+	SDL_RenderPresent(app->renderer);
 }
 
 int TestScreen::onEvent(){
@@ -24,18 +32,15 @@ int TestScreen::onEvent(){
 
 int TestScreen::execute(int argc,char *argv[]){
 	if(!init())return 1;
-	
-	com.push_back(new Button(app,{100,100,100,100},"Sb",[](){std::cerr<<"Sb";}));
-	
+	running=true;
 	while(running){
+		Uint64 start = SDL_GetPerformanceCounter();
 		onEvent();
 		render();
+		Uint64 end = SDL_GetPerformanceCounter();
+		float msecondsElapsed = (end - start) / static_cast<float>(SDL_GetPerformanceFrequency())/1000;
+		if(msecondsElapsed<app->flash)SDL_Delay((int)(app->flash-msecondsElapsed));
 	}
-	
-	for(auto t:com)
-		delete(t);
-	clearContainer(com);
-	
 	cleanUp();
 	return 0;
 }

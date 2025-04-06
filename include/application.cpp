@@ -27,7 +27,8 @@ Application::~Application(){
 
 
 bool Application::init(){
-	if(SDL_Init(SDL_INIT_EVERYTHING) < 0)return false;
+	if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
+		return false;
 	if(TTF_Init()<0)return false;
 	window = SDL_CreateWindow(
 	"Hello SDL world!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
