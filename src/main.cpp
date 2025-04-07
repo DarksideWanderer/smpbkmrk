@@ -10,12 +10,10 @@ Application &app=*Application::getInstance();
 
 dag::tool::Logger &logger=*dag::tool::Logger::getInstance();
 
-int main(){
+int main(int argc,char *argv[]){
 	
-	logger.open(dag::tool::getPath()/"mainlog.txt");
+	logger.open((dag::tool::getPath()/"mainlog.txt").string());
 	
-	int argc=0;
-	char *argv[]={};
 	app.execute(argc,argv);
 	return 0;
 }

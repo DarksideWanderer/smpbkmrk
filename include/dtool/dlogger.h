@@ -48,7 +48,12 @@ namespace tool{
 		static struct tm ptm;
 		static char timestamp[32];
 		tim=std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		#ifdef __WIN32__
+		localtime_s(&ptm,&tim);//线程安全
+		#elif __APPLE__
 		localtime_r(&tim,&ptm);//线程安全
+		#endif
+		
 		memset(timestamp,0,sizeof(timestamp));
 		strftime(timestamp,sizeof(timestamp),"%Y-%m-%d %H:%M:%S",&ptm);
 		m_fout<<'['<<timestamp<<']';
