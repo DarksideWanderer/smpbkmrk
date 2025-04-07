@@ -7,12 +7,14 @@ class Button;
 class Component;
 class Screen;
 class TestScreen;
+class TextBox;
 class Application{//应用主体
 public:
 	friend class Button;
 	friend class Component;
 	friend class Screen;
 	friend class TestScreen;
+	friend class TextBox;
 	
 protected:
 	

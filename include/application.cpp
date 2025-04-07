@@ -17,7 +17,7 @@ float Application::getDPI() {
 }
 
 Application::Application(int _width,int _height){
-	alpha=0.25;
+	alpha=0.5;
 	//窗口缩放倍率,默认为1/4
 	height=static_cast<int>(alpha*_height);width=static_cast<int>(alpha*_width);
 	//窗口分辨率,默认为(1080,1920)
@@ -62,6 +62,8 @@ void Application::cleanUp(){
 	SDL_DestroyRenderer(renderer);
 	TTF_CloseFont(font);
 	SDL_StopTextInput();
+    TTF_Quit();
+    SDL_Quit();
 }
 
 // void Application::onEvent(){//用户交互

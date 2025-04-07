@@ -9,10 +9,11 @@
 
 
 bool TestScreen::init(){
-	com.push_back(new Button(app,{100,100,100,100},"Sb",[](){
-		static int t;
-		std::cout<<++t<<std::endl;
-	}));
+	// com.push_back(new Button(app,{100,100,100,100},"Woc 我是sb 啊",[](){
+	// 	static int t;
+	// 	std::cout<<++t<<std::endl;
+	// }));
+	com.push_back(new TextBox(app,{100,100,500,500}));
 	return true;
 }
 
@@ -29,8 +30,6 @@ void TestScreen::render(){
 	for(auto t:com)
 		t->render();
 		
-	SDL_Rect rectt={0,0,500*app->alpha,500*app->alpha};
-	SDL_RenderDrawRect(app->renderer, &rectt);
 	SDL_RenderPresent(app->renderer);
 }
 
