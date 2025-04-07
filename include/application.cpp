@@ -62,6 +62,8 @@ void Application::cleanUp(){
 	SDL_DestroyRenderer(renderer);
 	TTF_CloseFont(font);
 	SDL_StopTextInput();
+    TTF_Quit();
+    SDL_Quit();
 }
 
 // void Application::onEvent(){//用户交互
