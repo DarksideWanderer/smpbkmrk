@@ -25,16 +25,17 @@ bool Button::render() {
 	SDL_RenderDrawRect(app->renderer, &rectt); //绘制框框
 	// 渲染文本
 	
-	double target=rectt.h*0.9;
-	SDL_Surface* textSurface = TTF_RenderUTF8_Blended_Wrapped(app->font, label.c_str(), colort,0);
+	double target=rectt.h*0.95/98;
+	SDL_Surface* textSurface = TTF_RenderUTF8_Blended_Wrapped(app->font, label.c_str(), colort,0*rectt.w/target);
 	if(textSurface==nullptr){
 		logDebug("TTF_RenderUTF8_Blended_Wrapped Error: ",TTF_GetError());
 		return false;
 	}
 	double real=textSurface->h;
+	std::cout<<real<<' '<<target<<std::endl;
 	
 	SDL_Surface* tmpSurface;
-	tmpSurface=scaleSurface(textSurface,target/real,target/real);
+	tmpSurface=scaleSurface(textSurface,target,target);
 	SDL_FreeSurface(textSurface);textSurface=tmpSurface;
 	
 	//绘制出了一个纹理,现在看纹理放在哪里
@@ -43,7 +44,7 @@ bool Button::render() {
 	
 	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(app->renderer, textSurface);
 	
-	SDL_Rect textRect = {rectt.x+(int)((rectt.w-textw)/2.0),rectt.y+(int)((rectt.h-texth)/2.0-rectt.h*0.05), textw , texth }; // 设定文字位置,提供一个矩形,自动居中
+	SDL_Rect textRect = {rectt.x+(int)((rectt.w-textw)/2.0),rectt.y+(int)((rectt.h-texth)/2.0), textw , texth }; // 设定文字位置,提供一个矩形,自动居中
 	SDL_SetRenderDrawColor(app->renderer, colort.r, colort.g, colort.b, colort.a);
 	SDL_RenderCopy(app->renderer, textTexture, nullptr, &textRect);
 
@@ -55,10 +56,8 @@ void Button::setColorr(SDL_Color _color){colorr=_color;}
 void Button::setColort(SDL_Color _color){colort=_color;}
 int Button::handleEvent(SDL_Event&e) {
 	if (e.type == SDL_MOUSEBUTTONDOWN) {
-		std::cout<<"A:"<<e.button.x<<' '<<e.button.y<<std::endl;
-		std::cout<<"B:"<<rect.x*app->alpha<<' '<<rect.y*app->alpha<<std::endl;
-		if (e.button.x >= rect.x*app->alpha &&// e.button.x <= (rect.x + rect.w) &&
-			e.button.y >= rect.y*app->alpha) {//&& e.button.y <= (rect.y + rect.h)) {
+		if (e.button.x >= rect.x*app->alpha &&e.button.x <= (rect.x + rect.w)*app->alpha &&
+			e.button.y >= rect.y*app->alpha && e.button.y <= (rect.y + rect.h)*app->alpha) {
 			onClick();
 		}
 	}
