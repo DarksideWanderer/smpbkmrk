@@ -132,3 +132,15 @@ int TextBox::handleEvent(SDL_Event& e) {
 	}
 	return 0;
 }
+
+
+
+
+void TextBox::setcolorr(unsigned char red,unsigned char green,unsigned char blue,unsigned char transparency)
+{
+	colorr={red,green,blue,transparency};
+}
+void TextBox::setcolort(unsigned char red,unsigned char green,unsigned char blue,unsigned char transparency)
+{
+	colort={red,green,blue,transparency};
+}

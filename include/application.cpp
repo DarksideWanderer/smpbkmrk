@@ -16,22 +16,23 @@ float Application::getDPI() {
 	return ddpi;
 }
 
-Application::Application(int _width,int _height){
+Application::Application(const char name[],int _width,int _height,int font_size){
 	alpha=0.5;
 	//窗口缩放倍率,默认为1/4
 	height=static_cast<int>(alpha*_height);width=static_cast<int>(alpha*_width);
+	if (!init(name,font_size)){puts("init error");}
 	//窗口分辨率,默认为(1080,1920)
 }
 Application::~Application(){
 }
 
 
-bool Application::init(){
+bool Application::init(const char name[],int font_size){//name 长宽，位置，
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		return false;
 	if(TTF_Init()<0)return false;
 	window = SDL_CreateWindow(
-	"Hello SDL world!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
+	name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
 		width,height, SDL_WINDOW_SHOWN
 	); // 创建SDL窗口
 	if(window==nullptr) {
@@ -48,7 +49,7 @@ bool Application::init(){
 		return false;
 	}
 	//字体默认大小为36,渲染字体时优化纹理
-	font = TTF_OpenFont("../resource/Arial Unicode.ttf",36);
+	font = TTF_OpenFont("../resource/Arial Unicode.ttf",font_size);
 	if(font==nullptr){
 		logDebug("TTF_OpenFont error: ",TTF_GetError());
 		return false;
@@ -78,10 +79,10 @@ void Application::cleanUp(){
 // void Application::render(){
 // }
 
-int Application::execute(int argc, char *argv[]) {
-	if (!init())return 1;
+int Application::execute(int argc, char *argv[]) {//执行
 	
-	scr.push_back(new TestScreen(getInstance()));
+	
+	scr.push_back(new TestScreen(getInstance()));//这里丢的是窗口
 	while(running){
   		scr[index]->execute(argc,argv);
 	}
@@ -96,13 +97,13 @@ int Application::execute(int argc, char *argv[]) {
 	// 	if(msecondsElapsed<flash)SDL_Delay((int)(flash-msecondsElapsed));
 	// }
 	
-	for(auto t:scr)delete t;
+	for(auto t:scr)delete t;//清除屏幕
 	
 	cleanUp();
 	return 0;
 }
 
 Application* Application::getInstance(){
-	static Application* instance = new Application(1080,1920);
+	static Application* instance = new Application("1",1080,1920,12);
 	return instance;
 }

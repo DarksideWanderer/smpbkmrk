@@ -41,11 +41,14 @@ protected:
 	void setColort(SDL_Color _color);
 };
 
-class TextBox : public Component {
+class TextBox : public Component {//
 public:
 	friend class Application;
 	friend class Screen;
 	friend class TestScreen;
+	void setcolorr(unsigned char red,unsigned char green,unsigned char blue,unsigned char transparency);
+	void setcolort(unsigned char red,unsigned char green,unsigned char blue,unsigned char transparency);
+	
 private:
 	SDL_Rect rect;
 	std::string text;

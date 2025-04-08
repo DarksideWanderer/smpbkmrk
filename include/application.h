@@ -2,7 +2,6 @@
 #include<bits/stdc++.h>
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_ttf.h>
-
 class Button;
 class Component;
 class Screen;
@@ -24,17 +23,16 @@ protected:
 	double fps=60;
 	double flash=1000.0/60;
 	bool running=true;
-	
 	int width,height;//基础大小,靠纹理变更放大某些特殊东西
 	double alpha;//放大比率
 	
 	//参数函数
-	Application(int _height,int _wight);
+	Application(const char name[],int _height,int _wight,int font_size);
 	~Application();
 	float getDPI();
 	
 	//过程函数
-	bool init();
+	bool init(const char name[],int font_size);
 	void cleanUp();
 	
 	int index;//目前处于的screen编号

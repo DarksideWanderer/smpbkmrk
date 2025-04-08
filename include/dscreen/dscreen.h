@@ -7,7 +7,7 @@
 class Button;
 class Component;
 class Application;
-struct Screen{
+struct Screen{//
 public:
 	friend class Button;
 	friend class Component;
@@ -27,7 +27,7 @@ protected:
 	virtual int onEvent()=0;//事件处理
 	virtual int cleanUp()=0;
 	
-	std::vector<Component*>com;
+	std::vector<Component*>element;
 	
 public:
 	virtual int execute(int argc, char *argv[])=0;
@@ -35,7 +35,7 @@ public:
 	Screen& operator=(const Screen&)=delete; // 禁止赋值操作
 };
 
-struct TestScreen:public Screen{
+class TestScreen :public Screen{
 public:
 	friend class Button;
 	friend class Component;
@@ -44,11 +44,12 @@ protected:
 	TestScreen(Application*app):Screen(app){}
 	~TestScreen()=default;
 	
-	bool init() override;
+	bool init1(int x,int y,int w,int h);
+	bool init()override;
 	void render() override;
 	int onEvent() override;
 	int cleanUp() override;
 public:
-	int execute(int argc,char *argv[])override;
+	int execute(int argc,char *argv[]);
 	
 };
