@@ -703,7 +703,7 @@ if (!font) {
     initAdvancedTextBox(&textbox, 50, 50, 700, 500, font);
     textbox.is_focused = true;
     
-    SDL_StartTextInput();
+    SDL_StartTextInput();//
     
     int running = 1;
     while (running) {
