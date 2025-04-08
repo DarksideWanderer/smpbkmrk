@@ -11,7 +11,7 @@ class Application{//应用主体
 public:
 	friend class Button;
 	friend class Component;
-	friend class Screen;
+	friend class Screen;//
 	friend class TestScreen;
 	friend class TextBox;
 	

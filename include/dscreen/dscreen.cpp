@@ -7,7 +7,7 @@
 #include"dtool/dbasic.h"
 
 
-bool TestScreen::init1(int x,int y,int w,int h)
+bool TestScreen::init1(int x,int y,int w,int h)//
 {
 	element.push_back(new TextBox(app,{x,y,w,h}));
 	return true;

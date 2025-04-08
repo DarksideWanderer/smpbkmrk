@@ -27,7 +27,7 @@ Application::~Application(){
 }
 
 
-bool Application::init(const char name[],int font_size){//name 长宽，位置，
+bool Application::init(const char name[],int font_size){//name 长宽，位置，1
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		return false;
 	if(TTF_Init()<0)return false;

@@ -56,7 +56,7 @@ private:
 	SDL_Color colorr={0,0,255,255};//默认蓝框白字
 	SDL_Color colort={0,0,0,255};
 
-protected:
+protected://
 	TextBox(Application*app,SDL_Rect rect) : Component(app),rect(rect), active(false) {}
 	bool render() override;
 	int handleEvent(SDL_Event& e) override;

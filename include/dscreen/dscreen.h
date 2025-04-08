@@ -14,7 +14,7 @@ public:
 	friend class Application;
 	
 protected:
-	Application* app;
+	Application* app;//
 	//参数函数
 	Screen(Application* app):app(app){}
 	~Screen()=default;
