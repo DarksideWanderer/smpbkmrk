@@ -2,6 +2,7 @@
 #include<bits/stdc++.h>
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_ttf.h>
+#include"dtool/dstring.h"
 
 class Application;
 class Component{
@@ -12,7 +13,7 @@ public:
 protected:
 	Application* app;
 	virtual int handleEvent(SDL_Event&e)=0;  // 处理事件
-	virtual bool render()=0;  // 渲染组件
+	virtual void render()=0;  // 渲染组件
 	Component(Application* app):app(app){}
 	~Component()=default;
 };
@@ -36,26 +37,28 @@ protected:
 	Button(Application*app,SDL_Rect rect,const std::string& text, std::function<void()> onClick);
 	~Button()=default;
 	int handleEvent(SDL_Event&e) override;
-	bool render() override;
+	void render() override;
 	void setColorr(SDL_Color _color);
 	void setColort(SDL_Color _color);
 };
 
 class TextBox : public Component {
-public:
-	friend class Application;
-	friend class Screen;
-	friend class TestScreen;
-private:
-	SDL_Rect rect;
-	std::string text;
-	bool active;
-	SDL_Color colorr={0,0,255,255};//默认蓝框白字
-	SDL_Color colort={0,0,0,255};
-
-protected:
-	TextBox(Application*app,SDL_Rect rect) : Component(app),rect(rect), active(false) {}
-	bool render() override;
-	int handleEvent(SDL_Event& e) override;
-	const std::string& getText() const {return text;}
-};
+	public:
+		friend class Application;
+		friend class Screen;
+		friend class TestScreen;
+	private:
+		String text;// UTF-8 编码的文本
+		SDL_Rect rect;
+		SDL_Color bgcr={0,0,255,255};
+		SDL_Color txtcr={0,255,0,255};
+		SDL_Color bdcr={255,0,0,255};
+		bool active;
+		
+		void render();
+		int handleEvent(SDL_Event& e);
+		
+		TextBox(Application* app, SDL_Rect rect) : Component(app), rect(rect), active(false) {}
+		~TextBox() = default;
+		
+	};
